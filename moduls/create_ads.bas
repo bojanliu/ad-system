@@ -5,15 +5,15 @@ Dim x As Long
 Dim iad As Long
 Dim arrkey
 
-Sub checkstatus() 'Çå²é´øÍ¶·Å¿Í»§
+Sub checkstatus() 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¶ï¿½Å¿Í»ï¿½
     Dim i As Long, j As Long
     Dim a As Long, b As Long, c As Long, d As Long
     Dim arr() As String
-    a = WorksheetFunction.CountA(Worksheets(1).Range("i2:i65536")) '¼ÆËãÔÚÍ¶¹ã¸æ×éÊıÁ¿a£¬¸ù¾İÕ¹Ê¾¹ã¸æ³ö¼ÛÒ»ÁĞÓĞÎŞÊı¾İÀ´¼ÆËãÔÚÍ¶¹ã¸æ×éÊı
+    a = WorksheetFunction.CountA(Worksheets(1).Range("i2:i65536")) 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¹Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     b = Worksheets(1).[a65536].End(xlUp).Row
     ReDim arr(1 To a)
     j = 1
-    For i = 2 To b '½«ÔÚÍ¶¹ã¸æ×éÃû³Æ¸³ÓèÊı×éARR
+    For i = 2 To b 'ï¿½ï¿½ï¿½ï¿½Í¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ARR
         If Worksheets(1).Cells(i, 9) <> "" Then
             arr(j) = Worksheets(1).Cells(i, 7)
             j = j + 1
@@ -21,23 +21,23 @@ Sub checkstatus() 'Çå²é´øÍ¶·Å¿Í»§
     Next i
     
     With Worksheets(2)
-        c = .[a65536].End(xlUp).Row '¼ÆËã´ı´¦Àí¿Í»§ÊıÁ¿,´ı´¦Àí¿Í»§ÊıÎªC-1¸ö
+        c = .[a65536].End(xlUp).Row 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í»ï¿½ï¿½ï¿½ÎªC-1ï¿½ï¿½
         Application.ScreenUpdating = False
         For i = c To 2 Step -1
-            d = Len(.Cells(i, 1)) '¼ÆËãIDÓĞ¶àÉÙ¸ö×Ö·û
+            d = Len(.Cells(i, 1)) 'ï¿½ï¿½ï¿½ï¿½IDï¿½Ğ¶ï¿½ï¿½Ù¸ï¿½ï¿½Ö·ï¿½
             For j = 1 To a
-                If .Cells(i, 1) = Left(arr(j), d) Then '´ı´¦Àí¿Í»§ÓëÒÑÍ¶·Å¿Í»§½øĞĞIDÆ¥Åä£¬ÅĞ¶ÏÊÇ·ñÒÑÍ¶·Å
-                   .Rows(i).Delete 'ÈôÒÑÍ¶·Å£¬Ôò½«Æä¼ÇÂ¼ÕûĞĞÉ¾³ı£¬×îºóÊ£ÏÂÎ´Í¶·Å¼ÇÂ¼
+                If .Cells(i, 1) = Left(arr(j), d) Then 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½Í¶ï¿½Å¿Í»ï¿½ï¿½ï¿½ï¿½ï¿½IDÆ¥ï¿½ä£¬ï¿½Ğ¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Í¶ï¿½ï¿½
+                   .Rows(i).Delete 'ï¿½ï¿½ï¿½ï¿½Í¶ï¿½Å£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê£ï¿½ï¿½Î´Í¶ï¿½Å¼ï¿½Â¼
                 End If
             Next j
         Next i
-        c = .[a65536].End(xlUp).Row 'C-1Îª´ıÍ¶·Å¿Í»§Êı
-        Ö÷´°Ìå.Label17.Caption = c - 1 & "¸ö"
+        c = .[a65536].End(xlUp).Row 'C-1Îªï¿½ï¿½Í¶ï¿½Å¿Í»ï¿½ï¿½ï¿½
+        ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.Label17.Caption = c - 1 & "ï¿½ï¿½"
     End With
     Application.ScreenUpdating = False
 End Sub
 
-Sub sortrows() '°´ÕÕĞĞÒµÀà±ğÎª¿Í»§ÅÅĞò
+Sub sortrows() 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½Îªï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½
     Dim c As Long
     Sheets(2).Cells.Select
     c = Sheets(2).[a65536].End(xlUp).Row
@@ -54,9 +54,9 @@ Sub sortrows() '°´ÕÕĞĞÒµÀà±ğÎª¿Í»§ÅÅĞò
 End Sub
 
 
-Sub Circulation() 'ÏµÍ³Ö÷Ñ­»·
+Sub Circulation() 'ÏµÍ³ï¿½ï¿½Ñ­ï¿½ï¿½
     Dim c As Long
-    c = Worksheets(2).[a65536].End(xlUp).Row 'C±íÊ¾´ıÍ¶·Å¿Í»§ÊıÁ¿
+    c = Worksheets(2).[a65536].End(xlUp).Row 'Cï¿½ï¿½Ê¾ï¿½ï¿½Í¶ï¿½Å¿Í»ï¿½ï¿½ï¿½ï¿½ï¿½
     Worksheets.Add after:=Worksheets(2)
     With Worksheets(3)
         .Cells(1, 1) = "Campaign"
@@ -77,91 +77,92 @@ Sub Circulation() 'ÏµÍ³Ö÷Ñ­»·
         .Cells(1, 16) = "Keyword Status"
     End With
     For iad = 2 To c
-        x = Worksheets(3).[f65536].End(xlUp).Row + 1 '¶¨Î»¹Ø¼ü×ÖÁĞÎ»ÖÃ
-        Call setCPC(iad) 'µ÷ÓÃ´´½¨³ö¼Û¹ı³Ì
-        Call setnewads(iad) 'µ÷ÓÃ´´½¨¹ã¸æÓï¹ı³Ì
-        Call setkeyword(iad) 'µ÷ÓÃ´´½¨¹Ø¼ü×Ö¹ı³Ì
-        Call setkeywordtype(count) 'µ÷ÓÃ´´½¨¹Ø¼ü×ÖÆ¥Åä·½Ê½¹ı³Ì
-        Call setxkey(count, arrkey) 'µ÷ÓÃÑ¡Ôñ¹Ø¼ü×ÖÌî³ä½ø¹ã¸æÓïÖĞ¹ı³Ì
+        x = Worksheets(3).[f65536].End(xlUp).Row + 1 'ï¿½ï¿½Î»ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
+        Call setCPC(iad) 'ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û¹ï¿½ï¿½ï¿½
+        Call setnewads(iad) 'ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        Call setkeyword(iad) 'ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½
+        Call setkeywordtype(count) 'ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½Æ¥ï¿½ä·½Ê½ï¿½ï¿½ï¿½ï¿½
+        Call setxkey(count, arrkey) 'ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¹ï¿½ï¿½ï¿½
     Next iad
 End Sub
 
-Sub setCPC(iad As Long) '´´½¨³ö¼Û
+Sub setCPC(iad As Long) 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     With Worksheets(3)
         .Cells(x, 3) = "1.01"
         .Cells(x, 4) = "0.08"
         .Cells(x, 5) = "0.00"
-        .Cells(x, 2) = Worksheets(2).Cells(iad, 1) & Worksheets(2).Cells(iad, 3) 'Ìî³ä¹ã¸æ×éÃû³Æ
-        .Cells(x, 1) = "SH-" & Worksheets(2).Cells(iad, 21) & "(new)" 'Ìî³ä¹ã¸æÏµÁĞÃû³Æ
+        .Cells(x, 2) = Worksheets(2).Cells(iad, 1) & Worksheets(2).Cells(iad, 3) 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        .Cells(x, 1) = "SH-" & Worksheets(2).Cells(iad, 21) & "(new)" 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     End With
 End Sub
 
-Sub setnewads(iad As Long) '´´½¨¹ã¸æÓï
+Sub setnewads(iad As Long) 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     With Worksheets(3)
         
-        .Cells(x + 1, 8) = "{KeyWord:xkey}" 'µÚÒ»¸ö¹ã¸æ´´Òâ
+        .Cells(x + 1, 8) = "{KeyWord:xkey}" 'ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½æ´´ï¿½ï¿½
         .Cells(x + 1, 9) = "China {KeyWord:xkey} Suppliers"
         .Cells(x + 1, 10) = "High Quality, Competitive Price."
         .Cells(x + 1, 11) = "Made-in-China.com"
-        .Cells(x + 1, 12) = "http://" & Worksheets(2).Cells(iad, 2) & ".en.made-in-china.com" 'Ìî³äÄ¿±êÍøÖ·
-        .Cells(x + 1, 13) = "active" 'Ìî³ä¹ã¸æÏµÁĞ×´Ì¬
-        .Cells(x + 1, 14) = "active" 'Ìî³ä¹ã¸æ×é×´Ì¬
-        .Cells(x + 1, 15) = "active" 'Ìî³ä¹ã¸æÓï×´Ì¬
-        .Cells(x + 1, 2) = Worksheets(2).Cells(iad, 1) & Worksheets(2).Cells(iad, 3) 'Ìî³ä¹ã¸æ×éÃû³Æ
-        .Cells(x + 1, 1) = "SH-" & Worksheets(2).Cells(iad, 21) & "(new)" 'Ìî³ä¹ã¸æÏµÁĞÃû³Æ
+        .Cells(x + 1, 12) = "http://" & Worksheets(2).Cells(iad, 2) & ".en.made-in-china.com" 'ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½Ö·
+        .Cells(x + 1, 13) = "active" 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½×´Ì¬
+        .Cells(x + 1, 14) = "active" 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
+        .Cells(x + 1, 15) = "active" 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
+        .Cells(x + 1, 2) = Worksheets(2).Cells(iad, 1) & Worksheets(2).Cells(iad, 3) 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        .Cells(x + 1, 1) = "SH-" & Worksheets(2).Cells(iad, 21) & "(new)" 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         
-        .Cells(x + 2, 8) = "China {KeyWord:xkey}" 'µÚ¶ş¸ö¹ã¸æ´´Òâ
+        .Cells(x + 2, 8) = "China {KeyWord:xkey}" 'ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ´´ï¿½ï¿½
         .Cells(x + 2, 9) = "Good Price On {KeyWord:xkey}"
         .Cells(x + 2, 10) = "Trusted, Audited China Suppliers."
         .Cells(x + 2, 11) = "Made-in-China.com"
-        .Cells(x + 2, 12) = "http://" & Worksheets(2).Cells(iad, 2) & ".en.made-in-china.com" 'Ìî³äÄ¿±êÍøÖ·
-        .Cells(x + 2, 13) = "active" 'Ìî³ä¹ã¸æÏµÁĞ×´Ì¬
-        .Cells(x + 2, 14) = "active" 'Ìî³ä¹ã¸æ×é×´Ì¬
-        .Cells(x + 2, 15) = "active" 'Ìî³ä¹ã¸æÓï×´Ì¬
-        .Cells(x + 2, 2) = Worksheets(2).Cells(iad, 1) & Worksheets(2).Cells(iad, 3) 'Ìî³ä¹ã¸æ×éÃû³Æ
-        .Cells(x + 2, 1) = "SH-" & Worksheets(2).Cells(iad, 21) & "(new)" 'Ìî³ä¹ã¸æÏµÁĞÃû³Æ
+        .Cells(x + 2, 12) = "http://" & Worksheets(2).Cells(iad, 2) & ".en.made-in-china.com" 'ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½Ö·
+        .Cells(x + 2, 13) = "active" 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½×´Ì¬
+        .Cells(x + 2, 14) = "active" 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
+        .Cells(x + 2, 15) = "active" 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
+        .Cells(x + 2, 2) = Worksheets(2).Cells(iad, 1) & Worksheets(2).Cells(iad, 3) 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        .Cells(x + 2, 1) = "SH-" & Worksheets(2).Cells(iad, 21) & "(new)" 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         
-        .Cells(x + 3, 8) = "China {Keyword:xkey}" 'µÚÈı¸ö¹ã¸æ´´Òâ
+        .Cells(x + 3, 8) = "China {Keyword:xkey}" 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ´´ï¿½ï¿½
         .Cells(x + 3, 9) = "Find Audited China Manufacturers"
         .Cells(x + 3, 10) = "Of {Keyword:xkey}. Order Now!"
         .Cells(x + 3, 11) = "Made-in-China.com"
-        .Cells(x + 3, 12) = "http://" & Worksheets(2).Cells(iad, 2) & ".en.made-in-china.com" 'Ìî³äÄ¿±êÍøÖ·
-        .Cells(x + 3, 13) = "active" 'Ìî³ä¹ã¸æÏµÁĞ×´Ì¬
-        .Cells(x + 3, 14) = "active" 'Ìî³ä¹ã¸æ×é×´Ì¬
-        .Cells(x + 3, 15) = "active" 'Ìî³ä¹ã¸æÓï×´Ì¬
-        .Cells(x + 3, 2) = Worksheets(2).Cells(iad, 1) & Worksheets(2).Cells(iad, 3) 'Ìî³ä¹ã¸æ×éÃû³Æ
-        .Cells(x + 3, 1) = "SH-" & Worksheets(2).Cells(iad, 21) & "(new)" 'Ìî³ä¹ã¸æÏµÁĞÃû³Æ
+        .Cells(x + 3, 12) = "http://" & Worksheets(2).Cells(iad, 2) & ".en.made-in-china.com" 'ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½Ö·
+        .Cells(x + 3, 13) = "active" 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½×´Ì¬
+        .Cells(x + 3, 14) = "active" 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
+        .Cells(x + 3, 15) = "active" 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
+        .Cells(x + 3, 2) = Worksheets(2).Cells(iad, 1) & Worksheets(2).Cells(iad, 3) 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        .Cells(x + 3, 1) = "SH-" & Worksheets(2).Cells(iad, 21) & "(new)" 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
    End With
 End Sub
 
-Sub setkeyword(iad As Long) '´´½¨¹Ø¼ü×Ö
+Sub setkeyword(iad As Long) 'ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½
     Dim txt As String
     Dim i As Long
     Dim arrkey2(0 To 1000) As String
     With Worksheets(2)
-        txt = .Cells(iad, 5) & "," & .Cells(iad, 7) & "," & .Cells(iad, 9) & "," & .Cells(iad, 11)
+        txt = Application.WorksheetFunction.Proper(.Cells(iad, 5)) & "," & Application.WorksheetFunction.Proper(.Cells(iad, 7)) _
+        & "," & Application.WorksheetFunction.Proper(.Cells(iad, 9)) & "," & Application.WorksheetFunction.Proper(.Cells(iad, 11)) 'ä½¿ç”¨properå‡½æ•°ç¡®ä¿å•è¯é¦–å­—æ¯å¤§å†™
     End With
-    arrkey = Split(txt, ",") '#####################################################################¹Ø¼ü×ÖÊı×é############ÖØÒªÖØÒªÖØÒªÖØÒªÖØÒªÖØÒª
-    count = UBound(arrkey) - LBound(arrkey) '¹Ø¼ü×ÖÊı×éÔªËØÊı¼õ1¸ö
+    arrkey = Split(txt, ",") '#####################################################################ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½############ï¿½ï¿½Òªï¿½ï¿½Òªï¿½ï¿½Òªï¿½ï¿½Òªï¿½ï¿½Òªï¿½ï¿½Òª
+    count = UBound(arrkey) - LBound(arrkey) 'ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½
 
-    '#########################################¹Ø¼ü×ÖÊı×éµÄ±äÌåÊı×é#############################################
+    '#########################################ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½#############################################
     For i = LBound(arrkey) To UBound(arrkey)
         arrkey2(i) = arrkey(i)
         arrkey2(i + count + 1) = arrkey(i) & " suppliers"
     Next i
-    '#########################################¹Ø¼ü×ÖÊı×éµÄ±äÌåÊı×é#############################################
+    '#########################################ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½#############################################
     
     With Worksheets(3)
-        .Range(Cells(x + 4, 6), Cells(x + 4 + 2 * count + 1, 6)) = Application.WorksheetFunction.Transpose(arrkey2) 'ÔÚµ¥Ôª¸ñÖĞÌî³ä¹Ø¼ü×Ö
-        .Range(Cells(x + 4, 13), Cells(x + 4 + 2 * count + 1, 13)) = "active" 'Ìî³ä¹ã¸æÏµÁĞ×´Ì¬
-        .Range(Cells(x + 4, 14), Cells(x + 4 + 2 * count + 1, 14)) = "active" 'Ìî³ä¹ã¸æ×é×´Ì¬
-        .Range(Cells(x + 4, 16), Cells(x + 4 + 2 * count + 1, 16)) = "active" 'Ìî³ä¹Ø¼ü×Ö×´Ì¬
-        .Range(Cells(x + 4, 2), Cells(x + 4 + 2 * count + 1, 2)) = Worksheets(2).Cells(iad, 1) & Worksheets(2).Cells(iad, 3) 'Ìî³ä¹ã¸æ×éÃû³Æ
-        .Range(Cells(x + 4, 1), Cells(x + 4 + 2 * count + 1, 1)) = "SH-" & Worksheets(2).Cells(iad, 21) & "(new)" 'Ìî³ä¹ã¸æÏµÁĞÃû³Æ
+        .Range(Cells(x + 4, 6), Cells(x + 4 + 2 * count + 1, 6)) = Application.WorksheetFunction.Transpose(arrkey2) 'ï¿½Úµï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½
+        .Range(Cells(x + 4, 13), Cells(x + 4 + 2 * count + 1, 13)) = "active" 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½×´Ì¬
+        .Range(Cells(x + 4, 14), Cells(x + 4 + 2 * count + 1, 14)) = "active" 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
+        .Range(Cells(x + 4, 16), Cells(x + 4 + 2 * count + 1, 16)) = "active" 'ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½×´Ì¬
+        .Range(Cells(x + 4, 2), Cells(x + 4 + 2 * count + 1, 2)) = Worksheets(2).Cells(iad, 1) & Worksheets(2).Cells(iad, 3) 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        .Range(Cells(x + 4, 1), Cells(x + 4 + 2 * count + 1, 1)) = "SH-" & Worksheets(2).Cells(iad, 21) & "(new)" 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     End With
 End Sub
 
-Sub setxkey(count As Long, arrkey) 'Ñ¡Ôñ¹Ø¼ü×ÖÌî³ä½ø¹ã¸æÓï
+Sub setxkey(count As Long, arrkey) 'Ñ¡ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     Dim i As Long
     With Worksheets(3)
         For i = 0 To count
@@ -173,21 +174,21 @@ Sub setxkey(count As Long, arrkey) 'Ñ¡Ôñ¹Ø¼ü×ÖÌî³ä½ø¹ã¸æÓï
     End With
 End Sub
 
-Sub setkeywordtype(count As Long)  '´´½¨¹Ø¼ü×ÖÆ¥Åä·½Ê½
+Sub setkeywordtype(count As Long)  'ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½Æ¥ï¿½ä·½Ê½
     Dim i As Long
     With Worksheets(3)
         For i = x + 4 To x + 4 + count
-            If .Cells(i, 6) <> "" Then 'Èç¹û¹Ø¼ü×ÖÒ»ÁĞ²»Îª¿Õ£¬ÔòÑ¡ÔñÆ¥Åä·½Ê½
-                .Cells(i, 6) = Trim(.Cells(i, 6)) '°Ñ¹Ø¼ü´ÊÇ°ÃæµÄ¿Õ¸ñÈ¥µô
-                If .Cells(i, 6) Like "* *" Then '¹Ø¼ü×Ö×ÖÊı´óÓÚ1µÄÑ¡Ôñ¹ã·ºÆ¥Åä
+            If .Cells(i, 6) <> "" Then 'ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½Ò»ï¿½Ğ²ï¿½Îªï¿½Õ£ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½Æ¥ï¿½ä·½Ê½
+                .Cells(i, 6) = Trim(.Cells(i, 6)) 'ï¿½Ñ¹Ø¼ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ä¿Õ¸ï¿½È¥ï¿½ï¿½
+                If .Cells(i, 6) Like "* *" Then 'ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ã·ºÆ¥ï¿½ï¿½
                     .Cells(i, 7) = "broad"
                 Else
-                    .Cells(i, 7) = "exact" 'ÆäÓàÑ¡Ôñ¾«È·Æ¥Åä
+                    .Cells(i, 7) = "exact" 'ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½È·Æ¥ï¿½ï¿½
                 End If
             End If
         Next i
         
-        For i = x + 4 + count + 1 To x + 4 + 2 * count + 1 'Îª³¤Î²´ÊÌí¼ÓÆ¥Åä·½Ê½
+        For i = x + 4 + count + 1 To x + 4 + 2 * count + 1 'Îªï¿½ï¿½Î²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ä·½Ê½
             .Cells(i, 6) = Trim(.Cells(i, 6))
             .Cells(i, 7) = "broad"
         Next i
@@ -195,12 +196,12 @@ Sub setkeywordtype(count As Long)  '´´½¨¹Ø¼ü×ÖÆ¥Åä·½Ê½
     End With
 End Sub
 
-Sub addnewbook() '´´½¨µ¼Èë¹¤×÷²¾
+Sub addnewbook() 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¹¤ï¿½ï¿½ï¿½ï¿½
     With Workbooks.Add
         Workbooks(ThisWorkbook.Name).Sheets(3).Copy Before:=.Sheets(1)
-        .Worksheets(1).Cells.Font.Size = 10 '×ÖÌå
-        .SaveAs filename:=ThisWorkbook.Path & "\µ¼ÈëÎÄ¼ş.csv", FileFormat:=xlCSV 'ÃüÃû¼°¸ñÊ½
-        .Close True '¹Ø±ÕÌáÊ¾
+        .Worksheets(1).Cells.Font.Size = 10 'ï¿½ï¿½ï¿½ï¿½
+        .SaveAs filename:=ThisWorkbook.Path & "\ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½.csv", FileFormat:=xlCSV 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½
+        .Close True 'ï¿½Ø±ï¿½ï¿½ï¿½Ê¾
     End With
 End Sub
 
