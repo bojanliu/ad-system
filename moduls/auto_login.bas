@@ -1,21 +1,21 @@
 Attribute VB_Name = "auto_login"
 Option Explicit
 
-Sub Gotosem() 'µÇÂ¼SEM
+Sub Gotosem() 'ï¿½ï¿½Â¼SEM
 With CreateObject("internetexplorer.application")
     .Visible = False
     .Navigate "http://192.168.16.156:8080/sem2/login" 'URL
     Do Until .Readystate = 4
     DoEvents
     Loop
-        .Document.all("login").Value = "liuhuawei"
-        .Document.all("password").Value = "adw56557"
-        .Document.forms(0).submit 'ÈôµÇÂ¼°´Å¥Î´ÃüÃû£¬ÔòÊ¹ÓÃ´Ë·½·¨
+        .Document.all("login").Value = "******"
+        .Document.all("password").Value = "******"
+        .Document.forms(0).submit 'ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Å¥Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã´Ë·ï¿½ï¿½ï¿½
         .Quit
 End With
 End Sub
 
-Sub Gotopro() 'µÇÂ¼PRO
+Sub Gotopro() 'ï¿½ï¿½Â¼PRO
 With CreateObject("internetexplorer.application")
     .Visible = False
     .Navigate "http://pro.vemic.com/system/login.php" 'URL
@@ -23,9 +23,9 @@ With CreateObject("internetexplorer.application")
     DoEvents
     Loop
     On Error Resume Next
-        .Document.all("username").Value = "liuhuawei"
-        .Document.all("password").Value = "adw56557"
-        .Document.all("login_btn").Click 'µÇÂ¼°´Å¥ÓÐÃüÃû£¬¹ÊÓÃ´Ë·½·¨
+        .Document.all("username").Value = "******"
+        .Document.all("password").Value = "******"
+        .Document.all("login_btn").Click 'ï¿½ï¿½Â¼ï¿½ï¿½Å¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã´Ë·ï¿½ï¿½ï¿½
         .Quit
 End With
 End Sub
